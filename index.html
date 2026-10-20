@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MO Marketplace — Real deals. Real people.</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#fff;--ink:#111;--muted:#6b6b6b;--line:#e4e4e4;--red:#c8102e;--red-ink:#fff;--tint:#fbe4e7;--card:#fff;--blue:#e8eefb;--green:#e3f7ea;--cream:#fdf3e3;--grey:#f1f2f6;--dark:#000;--dark-ink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0d0d;--ink:#f4f4f4;--muted:#a5a5a5;--line:#2b2b2b;--red:#ff4a5e;--red-ink:#111;--tint:#2b1519;--card:#171717;--blue:#16202e;--green:#14261b;--cream:#261f12;--grey:#1b1b1f;--dark:#000;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d0d0d;--ink:#f4f4f4;--muted:#a5a5a5;--line:#2b2b2b;--red:#ff4a5e;--red-ink:#111;--tint:#2b1519;--card:#171717;--blue:#16202e;--green:#14261b;--cream:#261f12;--grey:#1b1b1f;--dark:#000;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 14px/1.5 Inter,system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:50}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+.w{max-width:1160px;margin:0 auto;padding:0 24px}
+.top{background:#000;color:#fff;font-size:12px;padding:8px 0}
+.top .w{display:flex;justify-content:space-between;gap:12px}.top span+span{display:flex;gap:20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:20;border-bottom:1px solid var(--line)}
+.row{display:flex;align-items:center;gap:18px;height:64px}
+.logo{font:800 34px Inter,sans-serif;letter-spacing:-.06em;color:var(--red)}
+.s{flex:1;display:flex;align-items:center;gap:10px;color:var(--muted)}
+.s input{border:0;background:none;color:var(--ink);font:inherit;width:100%;outline:0;min-width:80px}
+.loc{display:flex;gap:6px;align-items:center;white-space:nowrap}
+.btn{border:1px solid transparent;border-radius:7px;padding:9px 16px;font-weight:500;background:var(--red);color:var(--red-ink);transition:.15s}
+.btn:hover{opacity:.88}.btn.k{background:#000;color:#fff}.btn.o{background:none;color:var(--red);border-color:var(--red)}
+.ic{background:none;border:0;color:var(--ink);padding:4px}
+nav.sub{display:flex;gap:24px;height:42px;align-items:center;font-size:13px;overflow-x:auto;white-space:nowrap}
+nav.sub a.on{color:var(--red)}nav.sub em{margin-left:auto;color:var(--muted);font-style:normal}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;border-radius:18px;overflow:hidden;margin-top:24px;background:linear-gradient(110deg,var(--tint),var(--bg) 85%);position:relative}
+.hero .t{padding:48px 40px}
+h1{font-size:clamp(34px,5vw,54px);line-height:1.08;font-weight:500;letter-spacing:-.025em}h1 b{color:var(--red);font-weight:600}
+.hero p{color:var(--muted);margin:22px 0}.hero .btns{display:flex;gap:10px;flex-wrap:wrap}
+.pic{background:linear-gradient(135deg,#d0102a,#e8404f);position:relative;min-height:300px;overflow:hidden}
+.pic i{position:absolute;background:#fff;border-radius:6px;box-shadow:0 8px 20px rgba(0,0,0,.25);transform:rotate(var(--r))}
+.pic .p{position:absolute;left:18%;bottom:-8%;width:46%;height:78%;border-radius:60px 60px 0 0;background:linear-gradient(#f3d3bd 0 22%,#fff 22% 55%,#1b2c4a 55%)}
+h2{font-size:clamp(26px,3.4vw,34px);font-weight:500;letter-spacing:-.02em}
+section{margin-top:56px}.hd{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:6px}
+.more{color:var(--red);font-size:13px;white-space:nowrap}
+.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:22px}
+.cat{display:flex;flex-direction:column;gap:3px}.cat span{width:44px;height:44px;border-radius:50%;background:var(--tint);color:var(--red);display:grid;place-items:center;margin-bottom:12px;font-weight:600}
+.cat b{font-weight:500}.cat small{color:var(--muted)}
+.dup{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:64px}
+.promo{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+.promo h3{font-size:30px;font-weight:500;line-height:1.12;letter-spacing:-.02em}.promo p{color:var(--muted);margin:14px 0}
+.promo .im{aspect-ratio:3/4;border-radius:4px;display:grid;place-items:center;font-size:12px;color:var(--muted)}
+.chips{display:flex;gap:8px;margin:18px 0 16px;flex-wrap:wrap}
+.chips button{border:1px solid var(--line);background:none;color:var(--ink);border-radius:99px;padding:5px 14px;font-size:12.5px}
+.chips button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border-radius:4px}
+.card .im{height:130px;position:relative;display:grid;place-items:center;font-size:12px;color:#fff}
+.heart{position:absolute;top:10px;right:10px;width:26px;height:26px;border-radius:50%;background:#fff;border:0;color:#111}
+.heart.on{color:var(--red)}
+.card .b{padding:12px 10px 0}.tag{color:var(--red);font-size:10.5px;font-weight:600}.card .n{font-weight:500;margin:6px 0 2px}.card .m{color:var(--muted);font-size:11px}.card .pr{font-weight:500;margin:8px 0}
+.card .a{display:flex;gap:10px;align-items:center;padding-bottom:6px}.card .a .btn{flex:1;background:var(--red);color:var(--red-ink);text-align:center;font-weight:600}.card{cursor:pointer}
+.dark{background:var(--dark);color:var(--dark-ink);padding:44px 0;margin-top:56px}
+.dark h2{color:#fff}.dark .sub{color:#d0d0d0;margin:6px 0 24px;font-weight:500}
+.dark .im{height:150px;border-radius:6px;margin-bottom:16px;display:grid;place-items:center;font-size:12px;color:#fff}
+.dark h4{font-size:19px;font-weight:400}.dark p{color:#cfcfcf;margin:6px 0 12px}
+.dark .tg{display:flex;gap:8px;margin-bottom:14px}.dark .tg span{border:1px solid #444;border-radius:99px;padding:2px 12px;font-size:12px}.dark .more{color:#ff6a3d}
+.how{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:28px;padding-left:14px}
+.how h4{font-weight:500;font-size:16px;margin-bottom:14px}
+.st{display:grid;grid-template-columns:20px 1fr;gap:12px;margin-bottom:14px}.st i{width:18px;height:18px;border-radius:50%;background:var(--tint);color:var(--red);font:600 10px/18px Inter;text-align:center;margin-top:2px}
+.st b{font-weight:500;display:block}.st small{color:var(--muted);font-size:13px}
+.tip{background:var(--tint);border-radius:6px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:20px;flex-wrap:wrap}
+.tip small{color:var(--muted);display:block}
+.g3b{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.sp{border:1px solid var(--line);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.sp:nth-child(1){background:var(--tint)}.sp:nth-child(2){background:var(--grey)}.sp:nth-child(3){background:var(--green)}
+.sp em{font-style:normal;font-size:10.5px;letter-spacing:.04em;color:var(--muted)}.sp b{font-weight:600;font-size:16px;line-height:1.3}.sp small{color:var(--muted);font-size:13px}
+.cta{background:var(--cream);margin-top:48px;padding:36px 0}.cta .w{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.cta h2{font-size:34px}.cta p{color:var(--muted);margin-top:8px}
+footer{background:#0a0a0a;color:#fff;padding:36px 0 20px}
+.fg{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:24px}
+footer h5{font-weight:500;font-size:14px;margin-bottom:12px}footer a{display:block;color:#c9c9c9;margin-bottom:10px}
+footer .bt{border-top:1px solid #2a2a2a;margin-top:20px;padding-top:16px;color:#bbb;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.xp{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 0}.xp button{position:relative;text-align:left;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;padding:14px;display:flex;gap:12px;align-items:center;transition:.15s}.xp button:hover{border-color:var(--red)}.xp button[aria-pressed=true]{border-color:var(--red);background:var(--tint)}.xp .ic{width:40px;height:40px;border-radius:50%;background:var(--tint);color:var(--red);display:grid;place-items:center;font-size:18px;flex:none}.xp b{display:block;font-weight:600}.xp small{color:var(--muted);font-size:12px}.xp em{position:absolute;top:8px;right:10px;font:600 10.5px Inter;color:var(--red)}.flt{display:flex;gap:8px;flex-wrap:wrap;margin:-4px 0 16px;align-items:center;font-size:12.5px;color:var(--muted)}.flt select,.fp{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:5px 10px;font:inherit}dialog{border:0;border-radius:18px;padding:0;max-width:900px;width:calc(100% - 32px);background:var(--bg);color:var(--ink);max-height:90vh;overflow:auto}dialog::backdrop{background:rgba(0,0,0,.6)}.x{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;border:0;background:var(--grey);color:var(--ink);z-index:2}.dg2{display:grid;grid-template-columns:1fr 1.15fr;gap:28px;padding:28px;position:relative}.dg2 .im{height:280px;border-radius:12px;display:grid;place-items:center;color:#fff;font-size:13px}.di h3{font-size:24px;font-weight:600;margin:6px 0 4px}.di .pr{font-size:20px;font-weight:600}.box{border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:14px;background:var(--card)}.box p{color:var(--muted);margin-top:4px}.box ul{padding-left:18px;margin-top:6px;color:var(--muted)}.box small{color:var(--muted);display:block;margin-top:8px}.ph{display:flex;gap:8px;margin-top:10px}.ph i{flex:1;height:54px;border-radius:8px;background:var(--grey);font:normal 11px/54px Inter;text-align:center;color:var(--muted)}.box label{display:block;margin:8px 0;font-weight:500}.box input{display:block;width:100%;margin-top:6px;border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--bg);color:var(--ink);font:inherit}.bd{display:inline-block;border:1.5px solid var(--ink);border-radius:99px;padding:3px 12px;font-weight:600;font-size:12.5px;margin:6px 0}.sm{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;align-items:center;font-size:12px;color:var(--muted)}.sm .btn{padding:5px 10px;font-size:12px}.lg{font-size:12.5px}.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+@media(max-width:860px){.xp{grid-template-columns:1fr 1fr}.dg2{grid-template-columns:1fr}.hero,.dup,.how{grid-template-columns:1fr}.cats{grid-template-columns:repeat(2,1fr)}.g3,.g3b{grid-template-columns:1fr}.fg{grid-template-columns:1fr 1fr}.loc,.top span+span,nav.sub em{display:none}.dark .g3{grid-template-columns:1fr}.hero .t{padding:32px 24px}.dark .dg{grid-template-columns:1fr!important}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="top"><div class="w"><span>Sri Lanka’s marketplace for new &amp; pre-owned finds</span><span><a href="#how">How MO works</a><a href="#">Help</a><a href="#">English</a></span></div></div>
+<header><div class="w">
+ <div class="row">
+  <a class="logo" href="#">MO</a>
+  <label class="s">⌕ <input id="q" type="search" placeholder="What are you looking for?" aria-label="Search"></label>
+  <span class="loc">⌖ All Sri Lanka ⌄</span>
+  <button class="btn k" id="go">Search</button>
+  <button class="ic">Sign in</button><button class="ic" aria-label="Saved">♡</button><button class="ic" aria-label="Cart">🛒</button><button class="btn" id="th">Sell for free</button>
+ </div>
+ <nav class="sub"><a href="#">☰ All categories</a><a class="on" href="#">Discover</a><a href="#">Super Mall · New</a><a href="#">Pre-owned</a><a href="#">Vehicles</a><a href="#">Properties</a><em>Buy. Sell. Explore.</em></nav>
+</div></header>
+
+<main class="w">
+ <div class="hero">
+  <div class="t"><h1>Real deals.<br>Real people.<br>Endless possibilities.<br><b>Find yours today!</b></h1>
+   <p>From everyday essentials to something unexpected.<br>Buy, sell and explore on MO Marketplace.</p>
+   <div class="btns"><a class="btn" href="#finds">Explore the marketplace</a><a class="btn o" href="#">List an item</a></div></div>
+  <div class="pic" aria-hidden="true"><i style="--r:6deg;right:8%;top:8%;width:46%;height:36%"></i><i style="--r:-8deg;right:6%;top:46%;width:30%;height:26%"></i><i style="--r:5deg;right:30%;bottom:6%;width:22%;height:24%"></i><div class="p"></div></div>
+ </div>
+
+ <section>
+  <div class="hd"><h2>Where would you like to start?</h2></div><div class="xp" id="xp"></div><div class="hd" style="margin-top:40px"><h2>What are you looking for?</h2><a class="more" href="#">Browse all categories ↗</a></div>
+  <div class="cats" id="cats"></div>
+ </section>
+
+ <div class="dup">
+  <div class="promo"><div><h3>New favourites. Everyday possibilities.</h3><p>Explore mobiles, gadgets and the essentials on your list.</p><a class="more" href="#">Shop new items →</a></div><div class="im" style="background:var(--blue)">Mobile &amp; headphones</div></div>
+  <div class="promo"><div><h3>Good things deserve a second chapter.</h3><p>Discover pre-loved fashion, furniture and more.</p><a class="more" href="#">Shop pre-owned →</a></div><div class="im" style="background:var(--green)">Sofa</div></div>
+ </div>
+
+ <section id="finds">
+  <div class="hd"><div><h2>Find something worth keeping</h2><p style="color:var(--muted);margin-top:8px">A selection of new and pre-owned finds to start your search.</p></div><a class="more" href="#">Explore all listings ↗</a></div>
+  <div class="chips" id="chips"></div>
+  <div class="g3" id="grid"></div>
+ </section>
+</main>
+
+<div class="dark"><div class="w">
+ <h2>For life’s bigger moves</h2><p class="sub">A new set of wheels. A new place to call home.</p>
+ <div class="g3 dg" style="grid-template-columns:1fr 1fr;gap:20px">
+  <div><div class="im" style="background:linear-gradient(#7aa3c9,#c9d6e2 60%,#3b556e)">Vehicle</div><h4>Your next chapter. Your next ride.</h4><p>Compare vehicles by year, mileage, price and location.</p><div class="tg"><span>Cars</span><span>Motorbikes</span><span>Vans</span></div><a class="more" href="#">Browse vehicles ↗</a></div>
+  <div><div class="im" style="background:linear-gradient(#d9a8c0,#eadde4 55%,#555)">Property</div><h4>Find a place that feels like you.</h4><p>Explore by property type, size, bedrooms and location.</p><div class="tg"><span>Houses</span><span>Apartments</span><span>Land</span></div><a class="more" href="#">Browse properties ↗</a></div>
+ </div>
+</div></div>
+
+<main class="w" id="how">
+ <section style="margin-top:56px">
+  <h2>A little know-how goes a long way</h2><p style="color:var(--muted);margin-top:8px">New to MO? Here’s where to begin.</p>
+  <div class="how">
+   <div><h4>Your next find starts here.</h4>
+    <div class="st"><i>1</i><div><b>Find your favourite</b><small>Search or browse categories to discover an item.</small></div></div>
+    <div class="st"><i>2</i><div><b>Take a closer look</b><small>Read the details and make an offer.</small></div></div>
+    <div class="st"><i>3</i><div><b>Ready to buy?</b><small>Add your item to cart and continue to checkout.</small></div></div>
+    <a class="more" href="#">How to buy on MO →</a></div>
+   <div><h4>Sell something. Start something.</h4>
+    <div class="st"><i>1</i><div><b>Create your account</b><small>Sign up to start listing on MO.</small></div></div>
+    <div class="st"><i>2</i><div><b>Show it at its best</b><small>Upload clear photos and describe your item.</small></div></div>
+    <div class="st"><i>3</i><div><b>Set a price. Publish.</b><small>Add your price and put your listing out there.</small></div></div>
+    <a class="more" href="#">How to sell on MO →</a></div>
+  </div>
+  <div class="tip"><span><b style="font-weight:500">Good questions make better decisions.</b><small>Check the item’s condition, ask for more details and review your purchase before you commit.</small></span><a class="more" href="#">Buying guide →</a></div>
+  <div class="g3b">
+   <div class="sp"><em>CURATED SPOTLIGHT</em><b>Fresh drops from trusted sellers and Others</b><small>Verified listings, clear photos and helpful seller notes.</small><a class="more" href="#">Explore trusted finds ↗</a></div>
+   <div class="sp"><em>SHOPPING FLOW</em><b>Save, compare and checkout with confidence</b><small>Save items, compare prices and move quickly when you find the right fit.</small><a class="more" href="#">See how it works ↗</a></div>
+   <div class="sp"><em>DISCOVERY</em><b>Browse by category, condition and location</b><small>Navigate quickly between new, pre-owned, vehicles and properties.</small><a class="more" href="#">Browse categories ↗</a></div>
+  </div>
+ </section>
+</main>
+
+<div class="cta"><div class="w"><div><h2>Someone’s next great find could be yours.</h2><p>Make room for what’s next. List your new or pre-owned items for free.</p></div><button class="btn">Start selling for free</button></div></div>
+
+<footer><div class="w">
+ <div class="fg">
+  <div><div class="logo" style="font-size:30px;margin-bottom:14px">MO</div><p style="color:#c9c9c9">Great deals. Real people.<br>A marketplace for everyday possibilities across Sri Lanka.</p></div>
+  <div><h5>Explore MO</h5><a href="#">All categories</a><a href="#">Super Mall · New</a><a href="#">Pre-owned items</a><a href="#">Vehicles</a><a href="#">Properties</a></div>
+  <div><h5>Buy &amp; sell</h5><a href="#">How to buy</a><a href="#">How to sell</a><a href="#">List an item for free</a><a href="#">My account</a><a href="#">Saved items</a></div>
+  <div><h5>Help &amp; information</h5><a href="#">About MO</a><a href="#">Help centre</a><a href="#">Contact us</a><a href="#">Terms &amp; conditions</a><a href="#">Privacy policy</a></div>
+ </div>
+ <div class="bt"><span>© 2026 MO.lk. All rights reserved.</span><span>Sri Lanka · English · LKR</span></div>
+</div></footer>
+
+<script>
+var C=[["▢","Mobiles & gadgets","Phones, audio & more"],["⌂","Fashion","Style for every day"],["▭","Computers","Laptops & accessories"],["⌂","Furniture","Make yourself at home"],["◎","Home appliances","Everyday essentials"]];
+document.getElementById("cats").innerHTML=C.map(function(c){return '<a class="cat" href="#"><span>'+c[0]+'</span><b>'+c[1]+'</b><small>'+c[2]+'</small></a>'}).join("");
+var L=[{t:"New · Super Mall",k:"New",n:"AirPods Pro (2nd Gen)",m:"Mobiles & gadgets",p:"LKR 89,990",g:"#8a8f98,#e8e8ea"},
+{t:"Pre-owned · Gently Used",k:"Pre-owned",n:"Nike Sneakers",m:"Fashion · Colombo",p:"LKR 12,500",g:"#0c0c0c,#33404f"},
+{t:"Vehicles",k:"Vehicles",n:"Toyota Corolla 2019",m:"2019 · 45,000 km · Colombo",p:"LKR 7,850,000",g:"#5b7b99,#dfe6ec"}];
+var tab="All finds",tabs=["All finds","New","Pre-owned","Vehicles"],term="";
+document.getElementById("chips").innerHTML=tabs.map(function(t,i){return '<button class="'+(i?"":"on")+'">'+t+'</button>'}).join("");
+function draw(){
+ var l=L.filter(function(x){return (tab==="All finds"||x.k===tab)&&(x.n+x.m).toLowerCase().indexOf(term)>-1});
+ document.getElementById("grid").innerHTML=l.length?l.map(function(x){return '<article class="card"><div class="im" style="background:linear-gradient(135deg,'+x.g.split(",")[0]+','+x.g.split(",")[1]+')">'+x.k+'<button class="heart" aria-label="Save">♡</button></div><div class="b"><span class="tag">'+x.t+'</span><div class="n">'+x.n+'</div><div class="m">'+x.m+'</div><div class="pr">'+x.p+'</div><div class="a"><button class="btn">Make an offer</button><span>↗</span></div></div></article>'}).join(""):'<p style="color:var(--muted)">No finds match your search.</p>';
+}
+document.getElementById("chips").onclick=function(e){if(e.target.tagName!=="BUTTON")return;tab=e.target.textContent;Array.from(this.children).forEach(function(b){b.classList.toggle("on",b===e.target)});draw()};
+document.getElementById("grid").onclick=function(e){if(e.target.classList.contains("heart")){e.target.classList.toggle("on");e.target.textContent=e.target.classList.contains("on")?"♥":"♡"}};
+function find(){term=document.getElementById("q").value.toLowerCase();draw();document.getElementById("finds").scrollIntoView()}
+document.getElementById("go").onclick=find;document.getElementById("q").onkeydown=function(e){if(e.key==="Enter")find()};
+var T=["All finds","New","Pre-owned","Vehicles","Properties"],cond="",cur=null,O={};
+var X=[["New","Super Mall","▣","New items"],["Pre-owned","Second-Hand","↻","Pre-loved items"],["Vehicles","Vehicles","◉","Cars, bikes, vans"],["Properties","Properties","⌂","Houses, land, rentals"]];
+var CT={"All finds":[["Mobiles & gadgets","Phones, audio & more"],["Fashion","Style for every day"],["Computers","Laptops & accessories"],["Furniture","Make yourself at home"],["Home appliances","Everyday essentials"]],"New":[["Mobiles & gadgets","Phones, audio & more"],["Computers","Laptops & accessories"],["Audio","Earbuds & speakers"],["Beauty","Skincare & care"],["Home appliances","Everyday essentials"]],"Pre-owned":[["Fashion","Pre-loved style"],["Furniture","Second-chapter pieces"],["Electronics","Tested & working"],["Sports","Gear with life left"],["Photography","Cameras & lenses"]],"Vehicles":[["Cars","Compare by year & mileage"],["Motorbikes","Two-wheel finds"],["Vans","For work & family"],["Three-wheelers","Everyday runners"],["Parts","Spares & accessories"]],"Properties":[["Houses","For sale & rent"],["Apartments","City living"],["Land","Plots & perches"],["Commercial","Shops & offices"],["Rentals","Monthly stays"]]};
+var FL={"New":["Brand","Price range"],"Vehicles":["Year","Mileage","Location"],"Properties":["Type","Bedrooms","Location"]};
+var CD={"New":["●","Brand new, unused, in original packaging."],"Like new":["✦","Looks and works like new. No visible marks."],"Gently used":["✓","Light signs of use. Fully working."],"Fair visible wear":["!","Clear scratches or wear, disclosed below. Works as described."]};
+var L=[
+{id:1,k:"New",n:"AirPods Pro (2nd Gen)",m:"Mobiles & gadgets",p:89990,g:"#8a8f98,#e8e8ea",c:"New",f:["Sealed box","12-month seller warranty"],s:["Zippy",4.9,212,640]},
+{id:2,k:"New",n:"Logitech G102 Gaming Mouse",m:"Computers · Accessories",p:2749,g:"#14233f,#4a6aa8",c:"New",f:["Original packaging","6,000 DPI sensor"],s:["Zippy",4.9,212,640]},
+{id:3,k:"Pre-owned",n:"Nike Sneakers",m:"Fashion · Colombo",p:12500,g:"#0c0c0c,#33404f",c:"Gently used",f:["Light creasing on the toe box","Sole wear on left heel","Original box not included"],s:["Amaya P.",4.7,19,34]},
+{id:4,k:"Pre-owned",n:"3-Seater Fabric Sofa",m:"Furniture · Kandy",p:42000,g:"#b98f74,#e8d4c4",c:"Like new",f:["No stains or tears","Faint dust marks on the base"],s:["Nuwan D.",4.8,11,17]},
+{id:5,k:"Pre-owned",n:"Canon EOS DSLR Body",m:"Photography · Colombo",p:68000,g:"#2a2a2a,#7a7a7a",c:"Fair visible wear",f:["Scratches on the body","Shutter count about 42,000","Lens cap missing"],s:["Ruwan S.",4.5,8,12]},
+{id:6,k:"Vehicles",n:"Toyota Corolla 2019",m:"2019 · 45,000 km · Colombo",p:7850000,g:"#5b7b99,#dfe6ec",c:"",f:["Petrol · Automatic","First owner","Service records available"],s:["City Motors",4.6,37,58]},
+{id:7,k:"Vehicles",n:"Honda Vezel 2016",m:"2016 · 78,000 km · Gampaha",p:9450000,g:"#1f2b3a,#6d7f94",c:"",f:["Hybrid · Automatic","Two owners","Reg. documents verified by seller"],s:["City Motors",4.6,37,58]},
+{id:8,k:"Properties",n:"3-Bedroom House, Negombo",m:"House · 3 beds · 2 baths · 10 perches",p:38500000,g:"#c9a0b8,#eadde4",c:"",f:["Clear deed","Parking for 2 vehicles","Near the main road"],s:["Prime Homes",4.8,24,31]},
+{id:9,k:"Properties",n:"Apartment, Colombo 05",m:"Apartment · 2 beds · 1,050 sq ft",p:29000000,g:"#7f8fb3,#d3d9e8",c:"",f:["12th floor","Gym and pool access","1 parking slot"],s:["Prime Homes",4.8,24,31]}];
+var ST={Pending:"◷ Pending",Accepted:"✓ Accepted",Declined:"✕ Declined",Counter:"⇄ Counter-offer"};
+var fm=function(n){return "LKR "+n.toLocaleString("en-US")},now=function(){return new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})};
+var tagOf=function(x){return x.k==="Pre-owned"?"Pre-owned · "+x.c:x.k==="New"?"New · Super Mall":x.k};
+document.getElementById("chips").insertAdjacentHTML("afterend",'<div class="flt" id="flt"></div>');
+document.body.insertAdjacentHTML("beforeend",'<dialog id="dlg" aria-label="Item details"></dialog>');
+function draw(){
+ var l=L.filter(function(x){return (tab==="All finds"||x.k===tab)&&(x.n+x.m).toLowerCase().indexOf(term)>-1&&(!cond||x.c===cond)});
+ document.getElementById("chips").innerHTML=T.map(function(t){return '<button class="'+(t===tab?"on":"")+'">'+t+'</button>'}).join("");
+ document.getElementById("xp").innerHTML=X.map(function(x){var on=tab===x[0];return '<button aria-pressed="'+on+'" data-x="'+x[0]+'"><span class="ic" aria-hidden="true">'+x[2]+'</span><span><b>'+x[1]+'</b><small>'+x[3]+'</small></span>'+(on?'<em>✓ Selected</em>':'')+'</button>'}).join("");
+ document.getElementById("cats").innerHTML=CT[tab].map(function(c){return '<a class="cat" href="#"><span>'+c[0].charAt(0)+'</span><b>'+c[0]+'</b><small>'+c[1]+'</small></a>'}).join("");
+ var f="";if(tab==="Pre-owned")f='<label>Condition <select id="fc"><option value="">Any</option>'+["Like new","Gently used","Fair visible wear"].map(function(c){return '<option'+(c===cond?" selected":"")+'>'+c+'</option>'}).join("")+'</select></label><button class="fp">Price range ⌄</button>';else if(FL[tab])f=FL[tab].map(function(c){return '<button class="fp">'+c+' ⌄</button>'}).join("");
+ document.getElementById("flt").innerHTML=f;
+ document.getElementById("grid").innerHTML=l.length?l.map(function(x){var g=x.g.split(",");return '<article class="card" data-id="'+x.id+'"><div class="im" style="background:linear-gradient(135deg,'+g[0]+','+g[1]+')">'+x.k+'<button class="heart" aria-label="Save">♡</button></div><div class="b"><span class="tag">'+tagOf(x)+'</span><div class="n">'+x.n+'</div><div class="m">'+x.m+'</div><div class="pr">'+fm(x.p)+'</div><div class="a"><button class="btn">Make an offer</button><span>↗</span></div></div></article>'}).join(""):'<p style="color:var(--muted)">No finds match your filters.</p>';
+}
+document.getElementById("chips").onclick=function(e){if(e.target.tagName==="BUTTON"){tab=e.target.textContent;cond="";draw()}};
+document.getElementById("xp").onclick=function(e){var b=e.target.closest("button");if(b){tab=tab===b.dataset.x?"All finds":b.dataset.x;cond="";draw()}};
+document.addEventListener("change",function(e){if(e.target.id==="fc"){cond=e.target.value;draw()}});
+document.getElementById("grid").onclick=function(e){
+ if(e.target.classList.contains("heart")){e.target.classList.toggle("on");e.target.textContent=e.target.classList.contains("on")?"♥":"♡";return}
+ var c=e.target.closest(".card");if(c)openItem(+c.dataset.id,!!e.target.closest(".btn"));
+};
+function offer(it){
+ var o=O[it.id]||{st:"none",log:[]},h='<h4>Make an offer</h4>';
+ if(o.st==="none")h+='<label>Your offer (LKR)<input id="oa" type="number" inputmode="numeric" min="1" value="'+Math.round(it.p*.9/100)*100+'"></label><p class="nt">Valid for 48 hours. An accepted offer doesn’t complete the purchase; you’ll still confirm and pay at checkout.</p><button class="btn" data-a="send">Send offer</button>';
+ else{
+  h+='<div class="bd">'+ST[o.st]+'</div>';
+  if(o.st==="Pending")h+='<p>Waiting for the seller. Your offer of '+fm(o.amt)+' expires in 48 hours. We’ll notify you when the status changes.</p><div class="sm">Demo, seller replies: <button class="btn o" data-a="Accepted">Accept</button><button class="btn o" data-a="Declined">Decline</button><button class="btn o" data-a="Counter">Counter</button></div>';
+  if(o.st==="Counter")h+='<p>The seller countered with <b>'+fm(o.ctr)+'</b> (your offer: '+fm(o.amt)+').</p><div class="acts"><button class="btn" data-a="acc2">Accept counter</button><button class="btn o" data-a="Declined">Decline</button><button class="btn o" data-a="again">Counter again</button></div>';
+  if(o.st==="Accepted")h+='<p>Offer accepted at '+fm(o.fin||o.amt)+'. <b>Next step:</b> confirm and pay at checkout within 24 hours to complete the purchase.</p><div class="acts"><button class="btn">Continue to checkout</button></div>';
+  if(o.st==="Declined")h+='<p>This offer wasn’t accepted. You can make a new offer.</p><div class="acts"><button class="btn o" data-a="again">Make a new offer</button></div>';
+  h+='<ul class="lg">'+o.log.map(function(r){return '<li>'+r[1]+' · '+r[0]+'</li>'}).join("")+'</ul>';
+ }
+ return h;
+}
+function detail(it){
+ var cd=CD[it.c||""],pre=it.k==="Pre-owned",s=it.s,g=it.g.split(",");
+ return '<button class="x" data-close aria-label="Close">✕</button><div class="dg2"><div><div class="im" style="background:linear-gradient(135deg,'+g[0]+','+g[1]+')">'+it.k+'</div>'+(pre?'<div class="ph"><i>Close-up 1</i><i>Close-up 2</i><i>Close-up 3</i></div>':'')+'</div><div class="di"><span class="tag">'+tagOf(it)+'</span><h3>'+it.n+'</h3><div class="pr">'+fm(it.p)+'</div><p style="color:var(--muted)">'+it.m+'</p>'+
+ (cd?'<div class="box"><b><span aria-hidden="true">'+cd[0]+'</span> Condition: '+it.c+'</b><p>'+cd[1]+'</p></div>':'')+
+ '<div class="box"><b>'+(pre?"Disclosed flaws":"Highlights")+'</b><ul>'+it.f.map(function(x){return '<li>'+x+'</li>'}).join("")+'</ul></div>'+
+ '<div class="box"><b>Seller: '+s[0]+'</b><ul><li>✓ Phone number verified</li><li>★ '+s[1]+' from '+s[2]+' buyer reviews</li><li>'+s[3]+' completed sales</li></ul><small>Verification checks contact details only. MO doesn’t physically inspect items. Sample data for this concept.</small></div>'+
+ '<div class="box" id="op">'+offer(it)+'</div></div></div>';
+}
+function openItem(id,focus){
+ cur=L.filter(function(x){return x.id===id})[0];var d=document.getElementById("dlg");
+ d.innerHTML=detail(cur);d.showModal();
+ if(focus){var i=document.getElementById("oa");if(i)i.focus()}
+}
+document.getElementById("dlg").addEventListener("click",function(e){
+ if(e.target===this||e.target.closest("[data-close]")){this.close();return}
+ var b=e.target.closest("[data-a]");if(!b)return;
+ var a=b.dataset.a,o=O[cur.id]||{st:"none",log:[]};
+ if(a==="send"){var v=+document.getElementById("oa").value;if(!(v>0))return;o={st:"Pending",amt:v,log:o.log};o.log.unshift([now(),"You offered "+fm(v)])}
+ else if(a==="Accepted"){o.st="Accepted";o.log.unshift([now(),"Seller accepted "+fm(o.amt)])}
+ else if(a==="Declined"){o.st="Declined";o.log.unshift([now(),"Offer declined"])}
+ else if(a==="Counter"){o.st="Counter";o.ctr=Math.round((o.amt+cur.p)/200)*100;o.log.unshift([now(),"Seller countered "+fm(o.ctr)])}
+ else if(a==="acc2"){o.st="Accepted";o.fin=o.ctr;o.log.unshift([now(),"You accepted "+fm(o.ctr)])}
+ else if(a==="again"){o.st="none"}
+ O[cur.id]=o;document.getElementById("op").innerHTML=offer(cur);
+});
+draw();
+</script>
+</body>
+</html>
